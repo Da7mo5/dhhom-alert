@@ -1,67 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>🚨 Dhhom Alert</title>
-  <style>
-    body {
-      background-color: black;
-      color: red;
-      font-family: 'Courier New', monospace;
-      text-align: center;
-      padding-top: 80px;
-    }
-    .warning {
-      font-size: 36px;
-      font-weight: bold;
-      color: #ff0000;
-      animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    .log {
-      margin-top: 20px;
-      font-size: 20px;
-    }
-    .button {
-      margin-top: 40px;
-      background-color: red;
-      color: white;
-      font-size: 18px;
-      padding: 10px 20px;
-      border: none;
-      cursor: not-allowed;
-    }
-  </style>
-</head>
-<body>
-  <div class="warning">🚨 UNAUTHORIZED ACCESS DETECTED 🚨</div>
-  <div class="log">
-    <p>📍 Location: Riyadh, Saudi Arabia</p>
-    <p>🌐 IP Address: 192.168.43.66</p>
-    <p>🛰 Connecting to Military Satellite...</p>
-    <p>🔒 Encrypting Trace Route...</p>
-  </div>
+import time, os, webbrowser
 
-  <div id="countdown" class="log"></div>
+def slow(text, d=0.03):
+    for c in str(text):
+        print(c, end='', flush=True)
+        time.sleep(d)
+    print()
 
-  <button class="button">Exit Now</button>
+def clear():
+    os.system("cls" if os.name == "nt" else "clear")
 
-  <script>
-    let countdown = 10;
-    const countdownDiv = document.getElementById('countdown');
+def red_flash():
+    for _ in range(3):
+        print("\033[41m" + " "*60)
+        print("🚨 SECURITY BREACH DETECTED 🚨".center(60))
+        print(" "*60 + "\033[0m")
+        time.sleep(0.4)
+        clear()
+        time.sleep(0.2)
 
-    const interval = setInterval(() => {
-      countdownDiv.innerHTML = `⏳ Auto Report in: ${countdown} seconds...`;
-      countdown--;
-      if (countdown < 0) {
-        clearInterval(interval);
-        countdownDiv.innerHTML = "💀 FINAL WARNING SENT TO CYBER FORCE 💀";
-        document.body.innerHTML += `<h1 class="warning">⚠️ DO NOT CLOSE THIS PAGE ⚠️</h1>`;
-      }
-    }, 1000);
-  </script>
-</body>
-</html>
+def countdown(n):
+    for i in range(n, 0, -1):
+        slow(f"⏳ Tracing in: {i}...", 0.07)
+        time.sleep(0.3)
+
+def final_signature():
+    print("\n" + "☠️"*20)
+    print("Operated by: \033[1;36mD7om\033[0m")
+    print("Instagram: \033[1;35m@8z_b\033[0m")
+    print("☠️"*20 + "\n")
+
+def main():
+    clear()
+    slow("🔐 ACCESSING SECURE SYSTEM...", 0.05)
+    time.sleep(1)
+    slow("[⚠️] Unauthorized terminal access detected", 0.04)
+    slow("[🔍] Tracking your coordinates...", 0.04)
+    red_flash()
+    countdown(5)
+    slow("📍 Location identified: Riyadh, Saudi Arabia", 0.04)
+    slow("📡 Satellite S-1 connected... watching you LIVE", 0.05)
+    slow("🧠 Initiating final trace by D7om intelligence unit", 0.05)
+    time.sleep(2)
+    final_signature()
+    time.sleep(3)  # انتظر 3 ثواني قبل فتح الإنستقرام
+    webbrowser.open("https://instagram.com/8z_b")
+
+main()
