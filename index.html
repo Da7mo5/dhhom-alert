@@ -1,48 +1,50 @@
-import time, os, webbrowser
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>D7om Terminal</title>
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: monospace;
+      font-size: 20px;
+      padding: 30px;
+    }
+    .warning {
+      font-size: 34px;
+      color: #ff0000;
+      animation: blink 1s infinite;
+      font-weight: bold;
+      text-align: center;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .small { font-size: 16px; color: gray; }
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .footer h1 { font-size: 60px; }
+    .footer p { color: white; }
+    a { color: #ff66cc; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="warning">🚨 UNAUTHORIZED ACCESS DETECTED 🚨</div>
+  <br />
+  <p>[🔍] Tracking your coordinates...</p>
+  <p>[📍] Location: Riyadh, Saudi Arabia</p>
+  <p>[📡] Satellite S-1 Connected</p>
+  <p>[🧠] Final trace initiated by D7om Intel Unit</p>
+  <p class="small">System will auto-report in 5... 4... 3... 2... 1</p>
 
-def slow(text, d=0.03):
-    for c in str(text):
-        print(c, end='', flush=True)
-        time.sleep(d)
-    print()
-
-def clear():
-    os.system("cls" if os.name == "nt" else "clear")
-
-def red_flash():
-    for _ in range(3):
-        print("\033[41m" + " "*60)
-        print("🚨 SECURITY BREACH DETECTED 🚨".center(60))
-        print(" "*60 + "\033[0m")
-        time.sleep(0.4)
-        clear()
-        time.sleep(0.2)
-
-def countdown(n):
-    for i in range(n, 0, -1):
-        slow(f"⏳ Tracing in: {i}...", 0.07)
-        time.sleep(0.3)
-
-def final_signature():
-    print("\n" + "☠️"*20)
-    print("Operated by: \033[1;36mD7om\033[0m")
-    print("Instagram: \033[1;35m@8z_b\033[0m")
-    print("☠️"*20 + "\n")
-
-def main():
-    clear()
-    slow("🔐 ACCESSING SECURE SYSTEM...", 0.05)
-    time.sleep(1)
-    slow("[⚠️] Unauthorized terminal access detected", 0.04)
-    slow("[🔍] Tracking your coordinates...", 0.04)
-    red_flash()
-    countdown(5)
-    slow("📍 Location identified: Riyadh, Saudi Arabia", 0.04)
-    slow("📡 Satellite S-1 connected... watching you LIVE", 0.05)
-    slow("🧠 Initiating final trace by D7om intelligence unit", 0.05)
-    time.sleep(2)
-    final_signature()
-    time.sleep(3)  # انتظر 3 ثواني قبل فتح الإنستقرام
-    webbrowser.open("https://instagram.com/8z_b")
-
-main()
+  <div class="footer">
+    <h1>☠️☠️☠️</h1>
+    <p>Operated by: <b>D7om</b></p>
+    <p>Instagram: <a href="https://instagram.com/8z_b" target="_blank">@8z_b</a></p>
+  </div>
+</body>
+</html>
