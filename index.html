@@ -2,49 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>D7om Terminal</title>
+  <title>🚨 Dhhom Alert</title>
   <style>
     body {
       background-color: black;
       color: red;
-      font-family: monospace;
-      font-size: 20px;
-      padding: 30px;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding-top: 80px;
     }
     .warning {
-      font-size: 34px;
+      font-size: 36px;
+      font-weight: bold;
       color: #ff0000;
       animation: blink 1s infinite;
-      font-weight: bold;
-      text-align: center;
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
-    .small { font-size: 16px; color: gray; }
-    .footer {
-      text-align: center;
-      margin-top: 60px;
+    .log {
+      margin-top: 20px;
+      font-size: 20px;
     }
-    .footer h1 { font-size: 60px; }
-    .footer p { color: white; }
-    a { color: #ff66cc; text-decoration: none; }
+    .button {
+      margin-top: 40px;
+      background-color: red;
+      color: white;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      cursor: not-allowed;
+    }
+    .final {
+      margin-top: 60px;
+      font-size: 28px;
+      color: white;
+    }
+    .skull {
+      font-size: 80px;
+      color: white;
+    }
   </style>
 </head>
 <body>
   <div class="warning">🚨 UNAUTHORIZED ACCESS DETECTED 🚨</div>
-  <br />
-  <p>[🔍] Tracking your coordinates...</p>
-  <p>[📍] Location: Riyadh, Saudi Arabia</p>
-  <p>[📡] Satellite S-1 Connected</p>
-  <p>[🧠] Final trace initiated by D7om Intel Unit</p>
-  <p class="small">System will auto-report in 5... 4... 3... 2... 1</p>
-
-  <div class="footer">
-    <h1>☠️☠️☠️</h1>
-    <p>Operated by: <b>D7om</b></p>
-    <p>Instagram: <a href="https://instagram.com/8z_b" target="_blank">@8z_b</a></p>
+  <div class="log">
+    <p>📍 Location: Riyadh, Saudi Arabia</p>
+    <p>🌐 IP Address: 192.168.43.66</p>
+    <p>🛰 Connecting to Military Satellite...</p>
+    <p>🔒 Encrypting Trace Route...</p>
   </div>
+
+  <div id="countdown" class="log"></div>
+
+  <button class="button">Exit Now</button>
+
+  <div id="final" class="final" style="display:none;">
+    <div class="skull">☠️</div>
+    <p>Operated by <span style="color:#00ffff; font-weight:bold;">d7oom</span></p>
+    <p>Redirecting to Instagram...</p>
+  </div>
+
+  <script>
+    let countdown = 10;
+    const countdownDiv = document.getElementById('countdown');
+    const finalDiv = document.getElementById('final');
+
+    const interval = setInterval(() => {
+      countdownDiv.innerHTML = `⏳ Auto Report in: ${countdown} seconds...`;
+      countdown--;
+      if (countdown < 0) {
+        clearInterval(interval);
+        countdownDiv.innerHTML = "💀 FINAL WARNING SENT TO CYBER FORCE 💀";
+        document.body.innerHTML += `<h1 class="warning">⚠️ DO NOT CLOSE THIS PAGE ⚠️</h1>`;
+        
+        // Show skull and d7oom name
+        setTimeout(() => {
+          finalDiv.style.display = 'block';
+        }, 2000);
+
+        // Redirect to Instagram after 5 seconds
+        setTimeout(() => {
+          window.location.href = "https://instagram.com/8z_b";
+        }, 5000);
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
