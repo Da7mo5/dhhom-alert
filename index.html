@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🚨 Dhhom Alert</title>
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding-top: 80px;
+    }
+    .warning {
+      font-size: 36px;
+      font-weight: bold;
+      color: #ff0000;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .log {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+    .button {
+      margin-top: 40px;
+      background-color: red;
+      color: white;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="warning">🚨 UNAUTHORIZED ACCESS DETECTED 🚨</div>
+  <div class="log">
+    <p>📍 Location: Riyadh, Saudi Arabia</p>
+    <p>🌐 IP Address: 192.168.43.66</p>
+    <p>🛰 Connecting to Military Satellite...</p>
+    <p>🔒 Encrypting Trace Route...</p>
+  </div>
+
+  <div id="countdown" class="log"></div>
+
+  <button class="button">Exit Now</button>
+
+  <script>
+    let countdown = 10;
+    const countdownDiv = document.getElementById('countdown');
+
+    const interval = setInterval(() => {
+      countdownDiv.innerHTML = `⏳ Auto Report in: ${countdown} seconds...`;
+      countdown--;
+      if (countdown < 0) {
+        clearInterval(interval);
+        countdownDiv.innerHTML = "💀 FINAL WARNING SENT TO CYBER FORCE 💀";
+        document.body.innerHTML += `<h1 class="warning">⚠️ DO NOT CLOSE THIS PAGE ⚠️</h1>`;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
